@@ -1,6 +1,20 @@
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+
+## My cheatsheet
+https://www.prisma.io/blog/sveltekit-prisma-kvCOEoeQlC
+```
+npm install -g pnpm
+pnpm install
+
+pnpm run dev
+
+
+npx prisma migrate dev --name init
+npx prisma studio
+```
 
 ## Creating a project
 

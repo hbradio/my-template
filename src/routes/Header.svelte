@@ -5,6 +5,30 @@
 </script>
 
 <header>
+	<div class="signedInStatus">
+		<p class="nojs-show loaded">
+			{#if $page.data.session}
+				{#if $page.data.session.user?.image}
+					<span style="background-image: url('{$page.data.session.user.image}')" class="avatar" />
+				{/if}
+				<span class="signedInText">
+					<small>Signed in as</small><br />
+					<strong>{$page.data.session.user?.email ?? $page.data.session.user?.name}</strong>
+				</span>
+				<span>{$page.data.user.credits} credits remaining</span>
+				<a href="/buy" class="button" data-sveltekit-preload-data="off">Buy more.</a>
+				<a href="/auth/signout" class="button" data-sveltekit-preload-data="off">Sign out</a>
+			{:else}
+				<span class="notSignedInText">You are not signed in</span>
+				<a href="/auth/signin" class="buttonPrimary" data-sveltekit-preload-data="off">Sign in</a>
+			{/if}
+		</p>
+	</div>
+	<nav>
+		<ul class="navItems">
+			<li class="navItem"><a href="/protected">Protected</a></li>
+		</ul>
+	</nav>
 	<div class="corner">
 		<a href="https://kit.svelte.dev">
 			<img src={logo} alt="SvelteKit" />
@@ -42,6 +66,16 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+	}
+
+	.avatar {
+		border-radius: 2rem;
+		float: left;
+		height: 2.8rem;
+		width: 2.8rem;
+		background-color: white;
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
 
 	.corner {
