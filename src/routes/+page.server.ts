@@ -8,12 +8,15 @@ export const load: PageServerLoad = async ({ parent }) => {
 
   // Not sure why this is also needed here
   if (user == null) {
+    try {
     const createUserResponse = await prisma.user.create({
       data: {
         email: session.user.email,
         credits: 5
       }
     })
+  } catch {
+    console.log("Error in page user create. What is going on.");
   }
 
   const response = await prisma.post.findMany({
