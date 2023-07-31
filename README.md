@@ -1,52 +1,29 @@
 
-# create-svelte
+# My Template App
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+My SvelteKit template app. Deploy to [Vercel](https://vercel.com) for greatest success. Works well with [Cockroachdb](https://www.cockroachlabs.com/).
 
-## My cheatsheet
-https://www.prisma.io/blog/sveltekit-prisma-kvCOEoeQlC
+## Run locally
 ```
+# Supply secrets
+cdp .env.example .env
+
+# Install
 npm install -g pnpm
 pnpm install
 
+# Run locally
 pnpm run dev
 
-
+# Interact with the db
 npx prisma migrate dev --name init
 npx prisma studio
+
+# Simulate Stripe events
+stripe login
+stripe listen --forward-to localhost:5173/webhooks/stripe
+stripe trigger payment_intent.succeeded
 ```
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## References
+* https://www.prisma.io/blog/sveltekit-prisma-kvCOEoeQlC
