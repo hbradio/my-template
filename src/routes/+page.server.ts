@@ -1,9 +1,20 @@
-import type { PageServerLoad, User, Actions } from "./$types";
+import type { PageServerLoad, Actions } from "./$types";
 import prisma from '$lib/prisma';
 
 export const load: PageServerLoad = async ({ parent }) => {
   const data = await parent()
   const user = data.user;
+  const session = data.session;
+
+  // Not sure why this is also needed here
+  if (user == null) {
+    const createUserResponse = await prisma.user.create({
+      data: {
+        email: session.user.email,
+        credits: 5
+      }
+    })
+  }
 
   const response = await prisma.post.findMany({
     where: {
