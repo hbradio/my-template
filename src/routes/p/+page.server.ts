@@ -14,6 +14,10 @@ export const actions = {
     default: async ({ request }) => {
         const data = await request.formData();
 
+        if (user.credits < 1) {
+            throw redirect(303, `/buy`)
+        }
+
         let title = data.get("title")
         let content = data.get("content")
 

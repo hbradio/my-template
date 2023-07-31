@@ -28,7 +28,6 @@
   
   <style>
     .page {
-      background: white;
       padding: 3rem;
       display: flex;
       justify-content: center;
@@ -45,8 +44,6 @@
     }
   
     button[type="submit"] {
-      background: #ececec;
-      border: 0;
       padding: 1rem 2rem;
     }
   

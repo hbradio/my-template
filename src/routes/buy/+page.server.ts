@@ -34,7 +34,7 @@ export const actions = {
             ],
             client_reference_id: session.user.email,
             customer_email: session.user.email,
-            success_url: `${event.url.origin}`,
+            success_url: `${event.url.origin}/buy/success`,
             cancel_url: `${event.url.origin}`
         });
         throw redirect(303, stripeSession.url)

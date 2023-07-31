@@ -7,8 +7,8 @@
   
   <div class="page">
     <main>
+      <a href="/">Back</a>
       <h2>{post.title}</h2>
-      <p>{post.author.email}</p>
       <div>
         {@html post.content}
       </div>
@@ -20,7 +20,6 @@
   
   <style>
     .page {
-      background: white;
       padding: 2rem;
     }
   
@@ -29,9 +28,6 @@
     }
   
     button {
-      background: #ececec;
-      border: 0;
-      border-radius: 0.125rem;
       padding: 1rem 2rem;
     }
   

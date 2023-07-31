@@ -1,11 +1,34 @@
 @import '@fontsource/fira-mono';
 
+/* Webfont: SwedenSans-Bold */@font-face {
+    font-family: 'SwedenSansBold';
+    src: url('/fonts/SwedenSansBold.woff2') format('woff2'), /* Modern Browsers */
+         url('/fonts/SwedenSansBold.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: SwedenSans-Regular */@font-face {
+    font-family: 'SwedenSansRegular';
+    src: url('/fonts/SwedenSansRegular.woff2') format('woff2'), /* Modern Browsers */
+         url('/fonts/SwedenSansRegular.otf') format('opentype'); /* Safari, Android, iOS */
+             font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+
+h1 {
+	font-family: SwedenSansBold
+}
+
 :root {
-	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+	--font-body: SwedenSansRegular, Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-mono: 'Fira Mono', monospace;
-	--color-bg-0: rgb(202, 216, 228);
-	--color-bg-1: hsl(209, 36%, 86%);
+	--color-bg-0: rgb(255, 255, 255);
+	--color-bg-1: hsl(0, 0%, 100%);
 	--color-bg-2: hsl(224, 44%, 95%);
 	--color-theme-1: #ff3e00;
 	--color-theme-2: #4075a6;
@@ -22,31 +45,15 @@ body {
 	background-attachment: fixed;
 	background-color: var(--color-bg-1);
 	background-size: 100vw 100vh;
-	background-image: radial-gradient(
-			50% 50% at 50% 50%,
-			rgba(255, 255, 255, 0.75) 0%,
-			rgba(255, 255, 255, 0) 100%
-		),
-		linear-gradient(180deg, var(--color-bg-0) 0%, var(--color-bg-1) 15%, var(--color-bg-2) 50%);
 }
 
-h1,
-h2,
-p {
-	font-weight: 400;
+button {
+  padding: 1rem 2rem;
 }
-
+  
 p {
 	line-height: 1.5;
-}
-
-a {
-	color: var(--color-theme-1);
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
+	font-size: 1.0rem;
 }
 
 h1 {
@@ -55,13 +62,14 @@ h1 {
 }
 
 h2 {
-	font-size: 1rem;
+	font-size: 1.8rem;
+	font-family: var(--font-body);
 }
 
 pre {
 	font-size: 16px;
 	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
+	background-color: rgba(255, 255, 255, 0.871);
 	border-radius: 3px;
 	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
 	padding: 0.5em;
